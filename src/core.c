@@ -2063,7 +2063,7 @@ int _GNW95_init_window()
         int width = GetSystemMetrics(SM_CXSCREEN);
         int height = GetSystemMetrics(SM_CYSCREEN);
 
-        gProgramWindow = CreateWindowExA(WS_EX_TOPMOST, "GNW95 Class", gProgramWindowTitle, WS_POPUP | WS_VISIBLE | WS_SYSMENU, 0, 0, width, height, NULL, NULL, gInstance, NULL);
+        gProgramWindow = CreateWindowExA(WS_EX_APPWINDOW, "GNW95 Class", gProgramWindowTitle, WS_VISIBLE | WS_POPUP | WS_MINIMIZEBOX | WS_SYSMENU | WS_CLIPCHILDREN | WS_CLIPSIBLINGS, 0, 0, _windowGetXres(), _windowGetYres(), NULL, NULL, gInstance, NULL);
         if (gProgramWindow == NULL) {
             return -1;
         }
@@ -2128,11 +2128,11 @@ int directDrawInit(int width, int height, int bpp)
         return -1;
     }
 
-    if (IDirectDraw_SetCooperativeLevel(gDirectDraw, gProgramWindow, DDSCL_EXCLUSIVE | DDSCL_FULLSCREEN) != DD_OK) {
+    if (IDirectDraw_SetCooperativeLevel(gDirectDraw, gProgramWindow, DDSCL_NORMAL | DDSCL_NOWINDOWCHANGES) != DD_OK) {
         return -1;
     }
 
-    if (IDirectDraw_SetDisplayMode(gDirectDraw, width, height, bpp) != DD_OK) {
+    if (IDirectDraw_SetDisplayMode(gDirectDraw, GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN), bpp) != DD_OK) {
         return -1;
     }
 

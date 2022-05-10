@@ -79,7 +79,7 @@ void paletteFadeTo(unsigned char* palette)
         colorPaletteSetTransitionCallback(soundContinueAll);
     }
 
-    colorPaletteFadeBetween(gPalette, palette, gPaletteFadeSteps);
+    colorPaletteFadeBetween(gPalette, palette, gPaletteFadeSteps / 4);
     colorPaletteSetTransitionCallback(NULL);
 
     memcpy(gPalette, palette, 768);

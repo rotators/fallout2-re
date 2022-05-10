@@ -126,7 +126,7 @@ int gameInitWithOptions(const char* windowTitle, bool isMapper, int font, int a4
 
     runElectronicRegistration();
     programWindowSetTitle(windowTitle);
-    _initWindow(1, a4);
+    _initWindow(11, a4);
     paletteInit();
 
     char* language;

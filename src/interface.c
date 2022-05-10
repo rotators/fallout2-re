@@ -352,7 +352,7 @@ int interfaceInit()
 
     gInterfaceBarInitialized = 1;
 
-    gInterfaceBarWindow = windowCreate(0, 379, 640, 100, byte_6A38D0[0], WINDOW_HIDDEN);
+    gInterfaceBarWindow = windowCreate((_windowGetXres() / 2) - 320, _windowGetYres() - 101, 640, 100, byte_6A38D0[0], WINDOW_HIDDEN);
     if (gInterfaceBarWindow == -1) {
         goto err;
     }
